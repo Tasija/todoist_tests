@@ -17,7 +17,8 @@ def driver(request):
                     'deviceName': 'Nexus 5X API 28',
                     'app-package': 'com.todoist',
                     'appWaitActivity': 'com.todoist.activity.*',
-                    'app': '/Users/tasijafox/PycharmProjects/todoist/Todoist_v12.8_apkpure.com.apk',
+                    'forceMjsonwp': 'true',
+                    'app': PATH('../Todoist_v12.8_apkpure.com.apk'),
                     'autoGrantPermissions': 'true'}
     driver = webdriver.Remote(APPIUM_LOCAL_HOST_URL, desired_caps)
 
