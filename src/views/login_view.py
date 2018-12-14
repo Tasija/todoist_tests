@@ -22,3 +22,11 @@ class LoginView(BasePage):
 
     def click_log_in(self):
         self.driver.find_element(*Locators.log_in_btn).click()
+
+    def do_login(self, email, password):
+        self.click_on_continue_with_email()
+        self.set_email(email)
+        self.click_on_continue_with_email_next()
+        self.wait_until_progress_bar_disappear()
+        self.set_password(password)
+        self.click_log_in()
