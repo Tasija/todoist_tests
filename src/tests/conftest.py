@@ -1,9 +1,10 @@
 import os
 import pytest
-from appium import webdriver
-import src.requests.todoist_requests as td
 import string
 import random
+from appium import webdriver
+import src.requests.todoist_requests as td
+from src.views.login_view import LoginView
 
 PATH = lambda p: os.path.abspath(
     os.path.join(os.path.dirname(__file__), p)
@@ -37,7 +38,13 @@ def driver(request):
 
 @pytest.fixture()
 def do_login(driver):
-    driver.find_element()
+    login_view = LoginView(driver)
+    login_view.click_on_continue_with_email()
+    login_view.set_email('bulatova_a@ukr.net')
+    login_view.click_on_continue_with_email_next()
+    login_view.wait_until_progress_bar_disappear()
+    login_view.set_password('g9ke6p3FuSM3iDb')
+    login_view.click_log_in()
 
 
 @pytest.fixture()

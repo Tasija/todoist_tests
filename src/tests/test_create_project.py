@@ -1,7 +1,8 @@
-from src.views.login_view import LoginViewLocator
 
 
-def test_create_project(driver, create_project):
+def test_create_project(driver, create_project, do_login):
+    # Step 1 Create test project via API.
     project_name = create_project
-    login_view = LoginViewLocator(driver)
-    login_view.click_on_continue_with_email()
+    # Step 2 Login into mobile application.
+    do_login(driver)
+    # Step 3 Verify on mobile that project is created
