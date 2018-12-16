@@ -10,10 +10,17 @@ class Locators(object):
     log_in_btn = (MobileBy.ID, 'com.todoist:id/btn_log_in')
 
     # Main View
-    more_btn = (MobileBy.ACCESSIBILITY_ID, 'Change the current view')
     project_expand_collaps_btn = (MobileBy.XPATH, '//android.widget.RelativeLayout[4]/android.widget.ImageView')
-    project_name = (MobileBy.XPATH, "//android.widget.RelativeLayout["
-                                    "@resource-id='android:id/content']/android.widget.TextView[@resource-id='com.todoist:id/name']")
+
+    @staticmethod
+    def project_name(name):
+        return MobileBy.XPATH, "//android.widget.TextView[contains(@text, '{}')]".format(name)
+
+    # Task View
+    add_task_btn = (MobileBy.ID, 'com.todoist:id/fab')
+    enter_task = (MobileBy.ID, 'android:id/button1')
+    task_name_field = (MobileBy.ID, 'android:id/message')
 
     # General locators
+    change_current_view = (MobileBy.ACCESSIBILITY_ID, 'Change the current view')
     progress_bar = (MobileBy.ID, 'android:id/progress')

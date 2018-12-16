@@ -4,7 +4,6 @@ import string
 import random
 from appium import webdriver
 import src.requests.todoist_requests as td
-from src.views.login_view import LoginView
 
 
 PATH = lambda p: os.path.abspath(
@@ -41,5 +40,11 @@ def driver(request):
 @pytest.fixture
 def create_project():
     name = name_generator()
-    td.create_project(name)
-    return name
+    project_id = td.create_project(name)
+    return name, project_id
+
+
+@pytest.fixture
+def delete_all_projects():
+    td.delete_all_project()
+

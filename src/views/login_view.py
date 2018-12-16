@@ -1,6 +1,6 @@
 from src.views.base_page import BasePage
 from src.views.locators import Locators
-
+from src.views.main_view import MainView
 
 class LoginView(BasePage):
 
@@ -30,3 +30,4 @@ class LoginView(BasePage):
         self.wait_until_progress_bar_disappear()
         self.set_password(password)
         self.click_log_in()
+        return MainView(self.driver)
