@@ -13,13 +13,14 @@ class Locators(object):
     project_expand_collaps_btn = (MobileBy.XPATH, '//android.widget.RelativeLayout[4]/android.widget.ImageView')
 
     @staticmethod
-    def project_name(name):
+    def item_name(name):
         return MobileBy.XPATH, "//android.widget.TextView[contains(@text, '{}')]".format(name)
 
     # Task View
     add_task_btn = (MobileBy.ID, 'com.todoist:id/fab')
     enter_task = (MobileBy.ID, 'android:id/button1')
     task_name_field = (MobileBy.ID, 'android:id/message')
+    complete_task_btn = (MobileBy.ACCESSIBILITY_ID, 'Complete')
 
     # General locators
     change_current_view = (MobileBy.ACCESSIBILITY_ID, 'Change the current view')

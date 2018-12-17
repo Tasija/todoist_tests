@@ -14,4 +14,4 @@ class MainView(BasePage):
         return TaskView(self.driver)
 
     def find_project_by_name(self, name):
-        return self.wait_until_element_appear(Locators.project_name(name))
+        return self.wait_until_element_appear(Locators.item_name(name))

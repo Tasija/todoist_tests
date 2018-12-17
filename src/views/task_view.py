@@ -18,3 +18,14 @@ class TaskView(BasePage):
         self.set_task_name(name)
         self.hit_enter_task_name()
         self.change_current_view()
+
+    def click_on_task(self, name):
+        self.driver.find_element(*Locators.item_name(name)).click()
+
+    def click_on_complete_task_btn(self):
+        self.driver.find_element(*Locators.complete_task_btn).click()
+        self.wait_until_element_appear(Locators.add_task_btn)
+
+    def complete_task(self, name):
+        self.click_on_task(name)
+        self.click_on_complete_task_btn()
