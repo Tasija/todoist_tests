@@ -2,6 +2,6 @@
 
 Setup steps:
 Python setup:
-1. Install Python3.
+1. Install Python 3.6
 2. Clone or download repo
 3. From todoist_tests folder run pip install -r requirements.txt (to install python libraries) 
