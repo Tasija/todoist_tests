@@ -2,14 +2,18 @@
 
 Setup steps.
 1. Python setup:
+
 1.1. Install Python 3.6
+
 1.2. Clone or download repo
+
 1.3. From todoist_tests folder run (to install python libraries) 
 ```
 pip install -r requirements.txt 
 ```
 
 2. Appium setup:
+
 2.1. Install npm 
 ```
 brew install node
