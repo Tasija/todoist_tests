@@ -12,7 +12,7 @@ Setup steps.
 pip install -r requirements.txt 
 ```
 
-2. Appium setup:
+2. Appium and Android Emulator setup:
 
 2.1. Install npm 
 ```
