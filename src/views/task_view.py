@@ -29,3 +29,8 @@ class TaskView(BasePage):
     def complete_task(self, name):
         self.click_on_task(name)
         self.click_on_complete_task_btn()
+
+    def is_task_un_completed(self, task_name):
+        if self.driver.find_elements(*Locators.item_name(task_name)):
+            return True
+        return False

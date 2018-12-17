@@ -11,6 +11,7 @@ class MainView(BasePage):
     def click_on_project(self, name):
         project = self.find_project_by_name(name)
         project.click()
+        self.wait_until_element_appear(Locators.add_task_btn)
         return TaskView(self.driver)
 
     def find_project_by_name(self, name):

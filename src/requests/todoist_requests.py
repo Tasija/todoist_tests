@@ -26,3 +26,12 @@ def find_all_tasks_names_via_api():
     for i in range(0, len(api.state['items'])):
         all_names.append(api.state['items'][i]['content'])
     return all_names
+
+
+def un_complete_task(project_id):
+    api = todoist.TodoistAPI(API_TOKEN)
+    api.sync()
+    completed = api.items.get_completed(project_id)
+    item = api.items.get_by_id(int(completed[0]['id']))
+    item.uncomplete()
+    api.commit()

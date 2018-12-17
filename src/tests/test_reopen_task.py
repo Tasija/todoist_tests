@@ -22,8 +22,11 @@ def test_create_project(delete_all_projects, create_project, driver):
     task_view.create_new_task(NEW_TASK_NAME)
     # Step 4 Complete test task
     task_view.complete_task(NEW_TASK_NAME)
+    assert not task_view.is_task_un_completed(NEW_TASK_NAME), 'Task remains uncompleted'
     # Step 5 Reopen test task via API
+    td.un_complete_task(project_id)
     # Step 6 Mobile: Verify that test task appears in your test project
     main_view.change_current_view()
-    main_view.click_on_expand_collapse_projects()
     task_view = main_view.click_on_project(project_name)
+    task_view.refresh_view()
+    assert task_view.is_task_un_completed(NEW_TASK_NAME), 'Task remains completed'
